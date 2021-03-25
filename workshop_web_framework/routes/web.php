@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ManagementUserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +14,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('user', [ManagementUserController::class, 'index']);
+Route::resource('user', ManagementUserController::class);
 
 Route::get('/', function () {
     return view('welcome');
