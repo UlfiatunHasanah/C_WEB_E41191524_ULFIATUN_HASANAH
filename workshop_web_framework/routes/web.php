@@ -14,8 +14,12 @@ use App\Http\Controllers\ManagementUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('user', [ManagementUserController::class, 'index']);
-Route::resource('user', ManagementUserController::class);
+Route::get('user', [ManagementUserController::class, 'index']);
+//Route::resource('user', ManagementUserController::class);
+
+Route::get("/home", function () {
+    return view("home");
+});
 
 Route::get('/', function () {
     return view('welcome');
