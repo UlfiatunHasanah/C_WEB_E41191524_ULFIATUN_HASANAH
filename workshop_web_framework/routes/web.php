@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ManagementUserController;
+//use App\Http\Controllers\ManagementUserController;
+
+use App\Http\Controllers\frontend\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +16,18 @@ use App\Http\Controllers\ManagementUserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('user', [ManagementUserController::class, 'index']);
+/*
+Route::get('user', [ManagementUserController::class, 'index']);
 //Route::resource('user', ManagementUserController::class);
 
 Route::get("/home", function () {
-    return view("home", ["nama" => "Ulfiatun Hasanah", "pelajaran" => ["Algoritma & Pemrograman", "Kalkulus". "Pemrograman Web"]]);
+    return view("home");
 });
-
+*/
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['namespace' => 'App\Http\Controllers\frontend'], function () {
+    Route::resource('home', 'HomeController');
 });
